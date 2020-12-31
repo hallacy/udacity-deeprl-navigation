@@ -1,0 +1,19 @@
+<h2>Algorithm</h2>
+<p>In <code>Navigation.ipynb</code> we train a small, 3-layer MLP using DQN to walk around and collect Bananas from a Unity environment. While the project specified that picking up 13 bananas was considered solved, we went for 15 for no other reason than we're bananas for this project.</p>
+<p>The MLP (In the code: <code>QNetwork</code>) has the following features:</p>
+<pre><code>2 hidden layers, each with size 64.
+ReLU's after each hidden layer.
+</code></pre>
+<p>The Agent (<code>Agent</code> in the code), has the following hyperparameters:</p>
+<pre><code>BUFFER_SIZE = int(1e5)  # replay buffer size
+BATCH_SIZE = 64         # minibatch size
+GAMMA = 0.99            # discount factor
+TAU = 1e-3              # for soft update of target parameters
+LR = 5e-4               # learning rate 
+UPDATE_EVERY = 4        # how often to update the network
+</code></pre>
+<p>In addition, it has an episolon-greedy exploration that starts at 1 and decays at a rate of .995.  The algorithm converges around ~700 steps in.</p>
+<h2>Plot of Rewards</h2>
+<p>See the bottom of <code>Navigation.ipynb</code> for a plot of the rewards over time</p>
+<h2>Ideas for Future Work</h2>
+<p>There is likely room for speeding up training by implementing DDQN.  I'd also be interested in learning from pixels, though I expect that to be beyond my compute budget for now</p>
